@@ -1,5 +1,4 @@
 const std = @import("std");
-const c = @cImport(@cInclude("jansson.h"));
 
 pub fn main() !void {
     // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)

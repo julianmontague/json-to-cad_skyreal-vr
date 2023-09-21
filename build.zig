@@ -22,14 +22,6 @@ pub fn build(b: *std.Build) void {
         .root_source_file = .{ .path = "src/main.zig" },
         .target = target,
         .optimize = optimize,
-        .link_libc = true,
-    });
-
-    // Link Jansson, the JSON parsing library. We don't want to require users to install
-    // Jansson nor distribute it with this program, so we set static linking.
-    exe.linkSystemLibrary2("jansson", .{
-        .needed = true,
-        .preferred_link_mode = std.builtin.LinkMode.Static,
     });
 
     // This declares intent for the executable to be installed into the
