@@ -1,24 +1,19 @@
 const std = @import("std");
+const json = std.json;
+const json_buffer_length = 512;
 
 pub fn main() !void {
-    // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
-    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
+    const input_cur_dir = try std.fs.cwd().openDir("input", .{});
+    const input_file = try input_cur_dir.openFile("test.json", .{});
+    defer input_file.close();
 
-    // stdout is for the actual output of your application, for example if you
-    // are implementing gzip, then only the compressed bytes should be sent to
-    // stdout, not any debugging messages.
-    const stdout_file = std.io.getStdOut().writer();
-    var bw = std.io.bufferedWriter(stdout_file);
-    const stdout = bw.writer();
+    var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+    defer arena.deinit();
+    const allocator = arena.allocator();
+    const json_reader_type = json.Reader(json_buffer_length, std.fs.File.Reader);
+    var json_reader = json_reader_type.init(allocator, input_file.reader());
+    var parsed = try json.parseFromTokenSource(json.Value, allocator, &json_reader, .{});
+    defer parsed.deinit();
 
-    try stdout.print("Run `zig build test` to run the tests.\n", .{});
-
-    try bw.flush(); // don't forget to flush!
-}
-
-test "simple test" {
-    var list = std.ArrayList(i32).init(std.testing.allocator);
-    defer list.deinit(); // try commenting this out and see if zig detects the memory leak!
-    try list.append(42);
-    try std.testing.expectEqual(@as(i32, 42), list.pop());
+    std.log.debug("{any}", .{parsed.value});
 }
