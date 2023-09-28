@@ -14,6 +14,7 @@ pub fn main() !void {
     const allocator = arena.allocator();
     const json_reader_type = json.Reader(json_buffer_length, std.fs.File.Reader);
     var json_reader = json_reader_type.init(allocator, input_file.reader());
+    defer json_reader.deinit();
     var parsed = try json.parseFromTokenSource(json.Value, allocator, &json_reader, .{});
     defer parsed.deinit();
 
