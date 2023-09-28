@@ -7,8 +7,6 @@ pub fn main() !void {
     const input_file = try input_cur_dir.openFile("BackToCAD.json", .{});
     defer input_file.close();
 
-    // TODO: figure out why b2c.object is corrupted
-    // I assume it's something to do with json_buffer_length... maybe I need to stream
     var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
     defer arena.deinit();
     const allocator = arena.allocator();
@@ -23,7 +21,7 @@ pub fn main() !void {
     if (b2c == .object) {
         std.log.debug("JSON root element is an object", .{});
         if (b2c.object.get(api_ver_key)) |version| {
-            std.log.debug("Read file with API version {s}", .{version.string});
+            std.log.debug("Read file successfully with API version {s}", .{version.string});
         } else if (b2c.object.contains(api_ver_key)) {
             std.log.warn("object.get() doesn't return {s}, but object.contains() does", .{api_ver_key});
         } else {
