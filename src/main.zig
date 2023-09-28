@@ -7,9 +7,17 @@ pub fn main() !void {
     const input_file = try input_cur_dir.openFile("BackToCAD.json", .{});
     defer input_file.close();
 
-    var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
-    defer arena.deinit();
-    const allocator = arena.allocator();
+    // var arena = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+    // defer arena.deinit();
+    var gpa = std.heap.GeneralPurposeAllocator(.{}){};
+    defer {
+        const leaks: std.heap.Check = gpa.deinit();
+        switch (leaks) {
+            .ok => std.log.debug("GPA detected no leaks!", .{}),
+            .leak => std.log.err("This program leaks memory!", .{}),
+        }
+    }
+    const allocator = gpa.allocator();
     const json_reader_type = json.Reader(json_buffer_length, std.fs.File.Reader);
     var json_reader = json_reader_type.init(allocator, input_file.reader());
     defer json_reader.deinit();
