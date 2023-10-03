@@ -2,6 +2,64 @@ const std = @import("std");
 const json = std.json;
 const json_buffer_length = 512;
 
+const BackToCad = struct { api_version: u8, design: DesignTypes };
+
+const DesignTypes = struct {
+    pipes: ?[]PipeOrCable = null,
+    cables: ?[]PipeOrCable = null,
+    boxes: ?[]Box = null,
+    spheres: ?[]Sphere = null,
+};
+
+const PipeOrCable = struct {
+    id: []const u8,
+    parent: []const u8,
+    // instance_name = ""
+    display_name: []const u8,
+    // original_name = ""
+    part_number: []const u8,
+    // geometry = true
+    skr_world: []const u8,
+    absolute_transformation: TransformMatrix,
+    color: Color,
+    radius: f64,
+    local_points: []LocalPointObject,
+    radius_of_curvature: f64,
+};
+
+const Box = struct {
+    id: []const u8,
+    parent: []const u8,
+    // instance_name = ""
+    display_name: []const u8,
+    // original_name = ""
+    part_number: []const u8,
+    // geometry = true
+    skr_world: []const u8,
+    absolute_transformation: TransformMatrix,
+    color: Color,
+    local_point: LocalPoint,
+};
+
+const Sphere = struct {
+    id: []const u8,
+    parent: []const u8,
+    // instance_name = ""
+    display_name: []const u8,
+    // original_name = ""
+    part_number: []const u8,
+    // geometry = true
+    skr_world: []const u8,
+    absolute_transformation: TransformMatrix,
+    color: Color,
+    radius: f64,
+};
+
+const TransformMatrix = [16]f64;
+const Color = struct { r: f64, g: f64, b: f64 };
+const LocalPointObject = struct { local_point: LocalPoint };
+const LocalPoint = [3]f64;
+
 pub fn main() !void {
     const input_cur_dir = try std.fs.cwd().openDir("input", .{});
     const input_file = try input_cur_dir.openFile("BackToCAD.json", .{});
@@ -21,32 +79,8 @@ pub fn main() !void {
     const json_reader_type = json.Reader(json_buffer_length, std.fs.File.Reader);
     var json_reader = json_reader_type.init(allocator, input_file.reader());
     defer json_reader.deinit();
-    var parsed = try json.parseFromTokenSource(json.Value, allocator, &json_reader, .{});
+    var parsed = try json.parseFromTokenSource(BackToCad, allocator, &json_reader, .{ .ignore_unknown_fields = true });
     defer parsed.deinit();
-
-    const api_ver_key = "api_version";
-    const b2c = parsed.value;
-    if (b2c == .object) {
-        std.log.debug("JSON root element is an object", .{});
-        if (b2c.object.get(api_ver_key)) |version| {
-            std.log.debug("Read file successfully with API version {s}", .{version.string});
-        } else if (b2c.object.contains(api_ver_key)) {
-            std.log.warn("object.get() doesn't return {s}, but object.contains() does", .{api_ver_key});
-        } else {
-            std.log.debug("api_version key doesn't exist", .{});
-            std.log.debug("Root object contains {d} KV-pairs", .{b2c.object.count()});
-            var buffer: [1024]u8 = undefined;
-            var index: usize = 0;
-            const left_boundary = "«";
-            const right_boundary = "»";
-            const separator = ", ";
-            for (b2c.object.keys()) |key| {
-                index += strConcat(left_boundary, key, &buffer[index..]);
-                index += strConcat(right_boundary, separator, &buffer[index..]);
-            }
-            std.log.debug("{s}", .{buffer[0..index]});
-        }
-    }
 }
 
 /// This function assumes buf doesn't overlap in memory with str1 or str2.
