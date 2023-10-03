@@ -81,6 +81,12 @@ pub fn main() !void {
     defer json_reader.deinit();
     var parsed = try json.parseFromTokenSource(BackToCad, allocator, &json_reader, .{ .ignore_unknown_fields = true });
     defer parsed.deinit();
+
+    const output_dir_name = "output";
+    const output_dir = try std.fs.cwd().openDir(output_dir_name, .{});
+    const output_file = try output_dir.createFile("designs.json", .{});
+    defer output_file.close();
+    try json.stringify(parsed.value, .{ .whitespace = .indent_4 }, output_file.writer());
 }
 
 /// This function assumes buf doesn't overlap in memory with str1 or str2.
