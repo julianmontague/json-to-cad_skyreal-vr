@@ -1,64 +1,7 @@
 const std = @import("std");
+const BackToCad = @import("BackToCad.zig");
 const json = std.json;
 const json_buffer_length = 512;
-
-const BackToCad = struct { api_version: u8, design: DesignTypes };
-
-const DesignTypes = struct {
-    pipes: ?[]PipeOrCable = null,
-    cables: ?[]PipeOrCable = null,
-    boxes: ?[]Box = null,
-    spheres: ?[]Sphere = null,
-};
-
-const PipeOrCable = struct {
-    id: []const u8,
-    parent: []const u8,
-    // instance_name = ""
-    display_name: []const u8,
-    // original_name = ""
-    part_number: []const u8,
-    // geometry = true
-    skr_world: []const u8,
-    absolute_transformation: TransformMatrix,
-    color: Color,
-    radius: f64,
-    local_points: []LocalPointObject,
-    radius_of_curvature: f64,
-};
-
-const Box = struct {
-    id: []const u8,
-    parent: []const u8,
-    // instance_name = ""
-    display_name: []const u8,
-    // original_name = ""
-    part_number: []const u8,
-    // geometry = true
-    skr_world: []const u8,
-    absolute_transformation: TransformMatrix,
-    color: Color,
-    local_point: LocalPoint,
-};
-
-const Sphere = struct {
-    id: []const u8,
-    parent: []const u8,
-    // instance_name = ""
-    display_name: []const u8,
-    // original_name = ""
-    part_number: []const u8,
-    // geometry = true
-    skr_world: []const u8,
-    absolute_transformation: TransformMatrix,
-    color: Color,
-    radius: f64,
-};
-
-const TransformMatrix = [16]f64;
-const Color = struct { r: f64, g: f64, b: f64 };
-const LocalPointObject = struct { local_point: LocalPoint };
-const LocalPoint = [3]f64;
 
 pub fn main() !void {
     const input_cur_dir = try std.fs.cwd().openDir("input", .{});
