@@ -13,7 +13,7 @@
 
 Follow the [instructions][3] to build STEPcode from the command line, with the following modifications:
 
-- Run `cmake .. -DSC_BUILD_SCHEMAS=ap242` instead of `cmake ..` (json-to-cad only uses AP242)
+- Run `cmake .. -DSC_BUILD_SCHEMAS=ap203` instead of `cmake ..` (json-to-cad only uses AP203)
 - Don't run `make install` (I didn't)
 
 [1]: https://github.com/ziglang/zig/commit/f3f554b9b89cc39cf00b4df68bd3455e8ef34984
