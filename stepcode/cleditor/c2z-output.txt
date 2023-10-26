@@ -1,0 +1,13 @@
+info: binding `STEPfile.h`
+error: unhandled `CXXConstructExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+info: transpiled 271880/271931 (99.98 %)
+info: formating `STEPfile.zig`

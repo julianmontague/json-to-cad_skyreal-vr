@@ -1,0 +1,8 @@
+sdai.h transpiled 243019/243019 (100%)
+	see sdai_c2z-output.txt
+STEPattribute.h transpiled 245831/245862 (99.99 %)
+	see STEPattribute_c2z-output.txt
+ExpDict.h transpiled 251367/251367 (100%)
+	no warnings or errors
+Registry.h transpiled 268854/268857 (100.00 %)
+	no warnings or errors

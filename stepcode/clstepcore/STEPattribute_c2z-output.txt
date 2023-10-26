@@ -1,0 +1,26 @@
+info: binding `STEPattribute.h`
+error: no `inner` in `FriendDecl`
+error: unhandled `VerbatimLineComment` in `FullComment`
+error: unhandled `BlockCommandComment` in `FullComment`
+error: unhandled `BlockCommandComment` in `FullComment`
+error: unhandled `BlockCommandComment` in `FullComment`
+error: unhandled `FullComment` in ctor `STEPattribute`
+error: unhandled `CXXCtorInitializer` in ctor `STEPattribute`
+error: unhandled `CXXCtorInitializer` in ctor `STEPattribute`
+error: unhandled `CXXCtorInitializer` in ctor `STEPattribute`
+error: unhandled `CXXCtorInitializer` in ctor `STEPattribute`
+error: unhandled `CXXCtorInitializer` in ctor `STEPattribute`
+error: unhandled `CXXCtorInitializer` in ctor `STEPattribute`
+error: unhandled `CXXCtorInitializer` in ctor `STEPattribute`
+error: unhandled `CompoundStmt` in ctor `STEPattribute`
+error: unhandled `FullComment` in `FriendDecl`
+error: unhandled `FullComment` in `FriendDecl`
+warning: defining `InstMgrBase` as an opaque type
+warning: defining `SDAI_Application_instance` as an opaque type
+warning: defining `STEPaggregate` as an opaque type
+warning: defining `SCLundefined` as an opaque type
+warning: defining `TypeDescriptor` as an opaque type
+warning: defining `AttrDescriptor` as an opaque type
+warning: defining `EntityDescriptor` as an opaque type
+info: transpiled 245831/245862 (99.99 %)
+info: formating `STEPattribute.zig`

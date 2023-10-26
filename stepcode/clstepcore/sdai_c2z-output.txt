@@ -1,0 +1,12 @@
+info: binding `sdai.h`
+error: unhandled `CXXNewExpr`
+error: unhandled `CXXNewExpr`
+warning: defining `TypeDescriptor` as an opaque type
+warning: defining `EntityDescriptor` as an opaque type
+warning: defining `SelectTypeDescriptor` as an opaque type
+warning: defining `InstMgrBase` as an opaque type
+warning: defining `STEPattributeList` as an opaque type
+warning: defining `STEPattribute` as an opaque type
+warning: defining `SDAI_Model_contents` as an opaque type
+info: transpiled 243019/243019 (100.00 %)
+info: formating `sdai.zig`

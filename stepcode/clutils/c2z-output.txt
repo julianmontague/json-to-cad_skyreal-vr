@@ -1,0 +1,11 @@
+info: binding `errordesc.h`
+error: unhandled `UsingDirectiveDecl`
+warning: missing node `0x7f49b88c0100` of `ElaboratedType` in typedef `Severity`
+error: syntax errors in `ErrorDescriptor.severity`
+error: syntax errors in `ErrorDescriptor.GreaterSeverity`
+error: unhandled `CXXConstructExpr`
+error: unhandled `CXXConstructExpr`
+error: unhandled `CXXBindTemporaryExpr`
+error: unhandled `CXXBindTemporaryExpr`
+info: transpiled 181860/181874 (99.99 %)
+info: formating `errordesc.zig`
