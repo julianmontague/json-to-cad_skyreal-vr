@@ -1,5 +1,7 @@
 # JSON to CAD
 
+The code in this branch doesn't work. It was an attempt to use [STEPcode][2] from Zig.
+
 ## Requirements
 
 - Zig version 0.12.0 after [commit f3f554b9b89cc39cf00b4df68bd3455e8ef34984][1].
