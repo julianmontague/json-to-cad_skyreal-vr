@@ -1,0 +1,16 @@
+user@hostname:/path/to/json-to-cad$ zig build run-p21
+zig build-exe zig-p21 Debug native: error: the following command failed with 2 compilation errors:
+/path/to/ziglang/zig build-exe /path/to/json-to-cad/src/p21.zig -lsdai_ap203 -lstepeditor -lstepcore -lstepdai -lsteputils --cache-dir /path/to/json-to-cad/zig-cache --global-cache-dir ~/.cache/zig --name zig-p21 --listen=-
+Build Summary: 2/7 steps succeeded; 1 failed (disable with --summary none)
+run-p21 transitive failure
+└─ run zig-p21 transitive failure
+   ├─ zig build-exe zig-p21 Debug native 2 errors
+   └─ install transitive failure
+      └─ install zig-p21 transitive failure
+         └─ zig build-exe zig-p21 Debug native (reused)
+src/stepcode/clstepcore/Registry.zig:5:55: error: expected ';' after declaration
+extern const _1_t_sdaiINTEGER_: *const TypeDescriptor *const;
+                                                      ^
+src/stepcode/cleditor/STEPfile.zig:30:20: error: expected ',' after field
+    _iFileSize: std::ifstream::pos_type,
+                   ^
