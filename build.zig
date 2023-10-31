@@ -67,4 +67,34 @@ pub fn build(b: *std.Build) void {
     // running the unit tests.
     const test_step = b.step("test", "Run unit tests");
     test_step.dependOn(&run_unit_tests.step);
+
+    // ======================================================================
+    // zig-p21
+    // ======================================================================
+    const p21_exe = b.addExecutable(.{
+        .name = "zig-p21",
+        .root_source_file = .{ .path = "src/p21.zig" },
+        .target = target,
+        .optimize = optimize,
+    });
+
+    // Link all libraries that p21.cc links
+    p21_exe.linkSystemLibrary("sdai_ap203");
+    p21_exe.linkSystemLibrary("stepeditor");
+    p21_exe.linkSystemLibrary("stepcore");
+    p21_exe.linkSystemLibrary("stepdai");
+    p21_exe.linkSystemLibrary("steputils");
+
+    b.installArtifact(p21_exe);
+
+    // Create a Run step in the build graph
+    const p21_run_cmd = b.addRunArtifact(p21_exe);
+    p21_run_cmd.step.dependOn(b.getInstallStep());
+    if (b.args) |args| {
+        p21_run_cmd.addArgs(args);
+    }
+
+    // Create build step to run it
+    const p21_run_step = b.step("run-p21", "Run zig-p21");
+    p21_run_step.dependOn(&p21_run_cmd.step);
 }
