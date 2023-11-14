@@ -6,14 +6,17 @@
     <version>0.1.0</version>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
     </properties>
     <dependencies>
         <dependency>
             <groupId>net.jsdai</groupId>
             <artifactId>jsdai_runtime</artifactId>
             <version>4.5.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>net.harawata</groupId>
+            <artifactId>appdirs</artifactId>
+            <version>1.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -33,7 +36,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <release>11</release>
+                    <release>17</release>
                 </configuration>
             </plugin>
             <plugin>

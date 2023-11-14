@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Path;
 
 /**
  * JavaFX App
@@ -31,7 +32,9 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        Path configDirPath = JsdaiPropertiesFile.initialize();
+        System.setProperty("jsdai.properties", configDirPath.toString());
         launch();
     }
 
