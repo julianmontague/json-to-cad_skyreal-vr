@@ -35,6 +35,8 @@ public class App extends Application {
     public static void main(String[] args) throws IOException {
         Path configDirPath = JsdaiPropertiesFile.initialize();
         System.setProperty("jsdai.properties", configDirPath.toString());
+
+        AP203File.example();
         launch();
     }
 

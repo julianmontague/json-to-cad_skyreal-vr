@@ -14,6 +14,11 @@
             <version>4.5.0-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>nonmaven.net.jsdai.xim.library</groupId>
+            <artifactId>module_mim</artifactId>
+            <version>1.130.200</version>
+        </dependency>
+        <dependency>
             <groupId>net.harawata</groupId>
             <artifactId>appdirs</artifactId>
             <version>1.2.2</version>
