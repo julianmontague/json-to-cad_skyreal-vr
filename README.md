@@ -6,7 +6,7 @@ This project was created by Julian Montague for an internship with DigiCat at [Ã
 
 ## Status
 
-The programs in this repository are not functional. This branch, main, contains a Zig program to read a BackToCAD.json file. All it does with it is writes out the designs to another JSON file.
+The programs in this repository are not functional. This branch, main, contains a Zig program to read a BackToCAD.json file. All it does is write out the designs to another JSON file to verify that its parsing is correct.
 
 The stepcode-bindings branch contains a failed attempt to create Zig [bindings][bindings] for [STEPcode](https://stepcode.github.io/).
 
@@ -19,7 +19,20 @@ The java branch contains a JavaFX application that runs a "Hello World" of [JSDA
 
 ## Installing
 
-### TODO: Zig json-to-cad build
+### json-to-cad
+
+- Clone this repository
+- Run `zig build`
+
+#### Usage
+
+- [Export BackToCAD.json][save-for-b2c] for a simulation map from SkyReal VR
+- Create a new folder called `input`
+- Copy the exported BackToCAD.json to `input`
+- Create a new folder called `output`
+- Run `json-to-cad`
+
+The directories `input` and `output` must exist in the current working directory, otherwise the program will crash.
 
 ### STEPcode
 
@@ -46,3 +59,4 @@ Follow the [instructions][3] to build STEPcode from the command line, with the f
 [Ã¥kp]: https://www.aakp.no/aakp
 [skyreal-design]: https://docs.sky-real.com/docs/skyreal/commands/design
 [bindings]: https://en.wikipedia.org/wiki/Language_binding
+[save-for-b2c]: https://docs.sky-real.com/docs/skyreal/commands/save/#save-for-back-to-cad
