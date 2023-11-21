@@ -16,7 +16,6 @@ JSDAI isn't in Maven central, so it needs to be installed locally.
 
 - Install the following files from the extracted JSDAI release by following the instructions in `doc/local-maven-dependencies.txt` "Install with install:install-file":
   - `jsdai/jsdai_runtime.jar`
-  - `jsdai/jsdai_lib.jar`
 - Install the `jsdai_parent` `pom.xml` by [downloading it from SourceForge][jsdai_parent-pom] and following the instructions in `doc/local-maven-dependencies.txt` "Installing only a POM file".
 
 After that, you should be able to run `mvn install` from the commandline or using your IDE. See [Getting Started with JavaFX][openjfx-docs] if you have any issues.
