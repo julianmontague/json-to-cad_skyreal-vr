@@ -2,7 +2,7 @@
 
 This project was meant to convert BackToCAD.json files exported from [SkyReal VR][skyreal-vr] to a neutral 3D CAD format. It is not, and was never, created nor endorsed by SkyReal.
 
-This project was created by Julian Montague for an internship with DigiCat at [ÅKP][åkp]. The use case was to create [designs][skyreal-design] in SkyReal VR and import them into 3D CAD software not supported by SkyReal.
+These programs were created by Julian Montague for an internship with DigiCat at [ÅKP][åkp]. The use case was to create [designs][skyreal-design] in SkyReal VR and import them into 3D CAD software not supported by SkyReal.
 
 ## Status
 
