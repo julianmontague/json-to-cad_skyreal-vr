@@ -3,6 +3,10 @@ const BackToCad = @import("BackToCad.zig");
 const json = std.json;
 const json_buffer_length = 512;
 
+/// Reads ./input/BackToCAD.json, parses the designs in it, and writes them (for
+/// debugging purposes) to ./output/designs.json. The input and output
+/// directories must exist in the current working directory, otherwise it will
+/// return an error.
 pub fn main() !void {
     const input_cur_dir = try std.fs.cwd().openDir("input", .{});
     const input_file = try input_cur_dir.openFile("BackToCAD.json", .{});
