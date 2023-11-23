@@ -1,7 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+/* Manages the jsdai.properties file required for JSDAI.
+Copyright (C) 2023 ÅKP AS
+This file is part of json-to-cad-skyreal-vr.
+SPDX-License-Identifier: AGPL-3.0-only */
 package no.aakp.digicat.json.to.cad.skyreal.vr;
 
 import java.io.IOException;
