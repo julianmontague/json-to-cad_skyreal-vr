@@ -1,3 +1,7 @@
+//! json-to-cad parses BackToCAD.json files from SkyReal VR
+//! Copyright 2023 ÅKP AS
+//! SPDX-License-Identifier: MIT
+
 const std = @import("std");
 const BackToCad = @import("BackToCad.zig");
 const json = std.json;
