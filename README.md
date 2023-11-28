@@ -16,7 +16,7 @@ The java branch contains a JavaFX application that runs a "Hello World" of [JSDA
 
 <h3 id="future-work">Future work</h3>
 
-The only useful result of this Zig program is its ability to parse BackToCAD.json files (referred to as BackToCAD in this document).
+The only useful result of this Zig program is its ability to parse BackToCAD.json files (referred to as BackToCAD in this section).
 
 `src/main.zig` parses the "design" JSON object in BackToCAD. `src/BackToCad.zig` specifies which data to parse from BackToCAD. Zig source files are implicitly [structs][zig-structs], and the field names in `BackToCad.zig` are the [JSON object member names][json.org]. See commit 801d0502af775885507332da9c6f46ee152ae60b for an explanation of why the number types were chosen. A SkyReal representative confirmed that the 4-by-4 transformation matrix "absolute_transformation" is stored in [row-major order](https://en.wikipedia.org/wiki/Row-_and_column-major_order).
 
