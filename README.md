@@ -26,7 +26,7 @@ Line 33 of `src/main.zig` does the actual parsing by calling a Zig Standard Libr
 
 There is no free (of charge) SDK or library for writing .dwg files, which was the desired output format. The best file formats for exchanging to other formats are [ISO 10303-21 (STEP)][step-file] or [IFC][ifc].
 
-[STEPcode][stepcode] is a C++ SDK that works despite lacking comprehensive documentation, and is used by [BRL-CAD][brl-cad] (see [g-step.cpp][brl-cad-g-step]). See the previous version of this README in commit 3a9191e17fb1928dc48b64a392785cf0181e9fc4 for tips on how to build STEPcode. The [minimal Part 21 C++ example][p21-cpp] can be used to test the installation of STEPcode, although be aware that `sc_cf.h` used there [was renamed](https://github.com/stepcode/stepcode/commit/97c3d193a1421d6ee561c06f83323704cf4000cf) to `config.h` in v0.8.1. v0.8.2 also [recommends including the path to headers](https://github.com/stepcode/stepcode/releases/tag/v0.8.2).
+[STEPcode][stepcode] is a C++ SDK that works despite lacking comprehensive documentation, and is used by [BRL-CAD][brl-cad] (see [g-step.cpp][brl-cad-g-step]). See the previous version of this README in commit 3a9191e17fb1928dc48b64a392785cf0181e9fc4 for tips on how to build STEPcode. The [minimal Part 21 C++ example][p21-cpp] can be used to test the installation of STEPcode, although be aware that `sc_cf.h` used there [was renamed][sc_cf-rename] to `config.h` in v0.8.1. v0.8.2 also [recommends including the path to headers](https://github.com/stepcode/stepcode/releases/tag/v0.8.2).
 
 [JSDAI][jsdai], a Java API for STEP files, is recommended against since Julian was unable to get it to work. [IfcOpenShell][ifc-open-shell] is an IFC toolkit for Python or C++, but its use was not investigated in this project.
 
@@ -71,6 +71,7 @@ The directories `input` and `output` must exist in the current working directory
 [brl-cad]: https://brlcad.org/
 [brl-cad-g-step]: https://github.com/BRL-CAD/brlcad/blob/main/src/conv/step/g-step/g-step.cpp
 [p21-cpp]: https://stepcode.github.io/docs/p21_cpp_example/
+[sc_cf-rename]: https://github.com/stepcode/stepcode/commit/97c3d193a1421d6ee561c06f83323704cf4000cf
 [ifc-open-shell]: https://ifcopenshell.org/
 [oda-drawings]: https://www.opendesign.com/products/drawings
 [save-for-b2c]: https://docs.sky-real.com/docs/skyreal/commands/save/#save-for-back-to-cad
